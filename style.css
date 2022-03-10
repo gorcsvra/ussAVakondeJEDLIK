@@ -48,5 +48,9 @@ body{
 }
 
 .ufo{
- display: none;
+ 
+}
+
+span{
+  color:lime;
 }
