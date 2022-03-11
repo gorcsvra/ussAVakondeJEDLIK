@@ -34,7 +34,7 @@ function startGame() {
   scoreBoard.textContent = 0;
   timeUp = false;
   score = 0;
-  peep();
+  ufoUp();
   setTimeout(() => timeUp = true, 10000)
 }
 
