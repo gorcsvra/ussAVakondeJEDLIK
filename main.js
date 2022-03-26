@@ -5,7 +5,7 @@ const scoreBoard = document.querySelector(".score");
 
 let result = 0;
 let hitPosition;
-let currentTime = 10;
+let currentTime = 20;
 let timerId = null;
 
 function randomSector() {
@@ -34,7 +34,7 @@ sectors.forEach(sector => {
 })
 
 function moveUfo() {
-  timerId = setInterval(randomSector, 600);
+  timerId = setInterval(randomSector, 800);
 
 
 }
@@ -54,4 +54,4 @@ function countDown() {
 }
 
 
-let countDownTimerId = setInterval(countDown, 1000)
+let countDownTimerId = setInterval(countDown, 2000)
