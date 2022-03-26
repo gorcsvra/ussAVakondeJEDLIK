@@ -10,64 +10,49 @@
 </head>
 
 <body>
+
+
     <div class="grid-container">
-        <span class="score">0</span>
-        <button class="gomb" onClick="startGame()">Start!</button>
+
+  
         <div class="lottie">
             <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
             <lottie-player src="https://assets8.lottiefiles.com/packages/lf20_N6RcsC.json" background="transparent"
                 speed="1" loop autoplay></lottie-player>
         </div>
-        <div class="one sector">
-            <div class="ufo">
-
-            </div>
-        </div>
-        <div class="two sector">
-            <div class="ufo">
-
-            </div>
-        </div>
+        <div class="one sector"></div>
+        <div class="two sector"></div>
         <div class="three sector">
-            <div class="ufo">
-
-
+            <div class="ufo" id="hide-ufo">
             </div>
         </div>
-        <div class="four sector">
-            <div class="ufo">
-
+        <div class="four sector"></div>
+        <div class="five sector"></div>
+        <div class="six sector"></div>
+        <div class="seven sector"> </div>
+        <div class="eight sector"></div>
+        <div class="nine sector"> </div>
+        <div class="left-side">
+            <div class="container">
+                <div class="score score-container">
+                    <h2 class="title">Your Score:</h2>
+                    <h2 id="score">0</h2>
+    
+    
+                    <div class="timer-container">
+                        <h2 class="title">Time Left:</h2>
+                        <h2 id="time-left">60</h2>
+    
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="five sector">
-            <div class="ufo">
+        <div class="right-side"></div>
 
-            </div>
-        </div>
-        <div class="six sector">
-            <div class="ufo">
-
-            </div>
-        </div>
-        <div class="seven sector">
-            <div class="ufo">
-
-            </div>
-        </div>
-        <div class="eight sector">
-            <div class="ufo">
-
-            </div>
-        </div>
-        <div class="nine sector">
-            <div class="ufo">
-
-                </lottie-player>
-            </div>
-        </div>
 
     </div>
 
+    <script src="main.js"></script>
 </body>
 
 </html>

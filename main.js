@@ -1,50 +1,57 @@
 const sectors = document.querySelectorAll(".sector");
-const ufo = document.querySelectorAll(".ufo");
+const ufo = document.querySelector(".ufo");
+const timeLeft = document.querySelector("#time-left");
 const scoreBoard = document.querySelector(".score");
-let lastSector;
-let timeUp = false;
-let score = 0;
 
-function randomTime(min, max) {
-  return Math.round(Math.random() * (max - min) + min);
+let result = 0;
+let hitPosition;
+let currentTime = 10;
+let timerId = null;
+
+function randomSector() {
+  sectors.forEach(sector => {
+    sector.classList.remove('ufo');
+  });
+  
+  let randomSector = sectors[Math.floor(Math.random() * 9)];
+  randomSector.classList.add('ufo');
+
+  hitPosition = randomSector.id;
 }
 
-function randomSector(sectors) {
-  const index = Math.floor(Math.random() * holes.length);
-  const sector = sectors[index];
-  if (sector === lastSector) {
-    console.log("Itt a vége,előlről kezdődik");
-    return randomSector(sectors);
+
+
+sectors.forEach(sector => {
+  sector.addEventListener('mousedown' , () => {
+    if (sector.id == hitPosition) {
+      result++;
+      score.textContent = result;
+      hitPosition = null;
+      ufo.style.opacity = "0.8";
+    }
+
+  })
+})
+
+function moveUfo() {
+  timerId = setInterval(randomSector, 600);
+
+
+}
+
+
+moveUfo();
+
+function countDown() {
+  currentTime--;
+  timeLeft.textContent = currentTime;
+
+  if (currentTime ==0) {
+    clearInterval(countDownTimerId);
+    clearInterval(timerId);
+    alert('Játék vége! Az ön pontszáma:'+ result);
   }
-  lastSector = sector;
-  return sector;
 }
 
-function ufoUp() {
-  const time = randomTime(200, 1005);
-  const sector = randomSector(sectors);
-  sector.classList.add("up");
-  setTimeout(() => {
-    sector.classList.remove("up");
-    if (!timeUp) ufoUp();
-  }, time);
-}
 
-function startGame() {
-  scoreBoard.textContent = 0;
-  timeUp = false;
-  score = 0;
-  ufoUp();
-  setTimeout(() => (timeUp = true), 10000);
-}
-
-function bonk(e) {
-    if(!e.isTrusted) return; // cheater!
-    score++;
-    this.classList.remove('up');
-    scoreBoard.textContent = score;
-  }
-  
-  ufo.forEach(ufo => ufo.addEventListener('click', bonk));
-  
-  
+let countDownTimerId = setInterval(countDown, 1000)

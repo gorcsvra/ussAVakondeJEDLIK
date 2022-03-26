@@ -19,9 +19,13 @@ body,
 
 .grid-container {
   display: grid;
-  grid-template-columns: 1.85fr 1fr 1fr 1fr 1.85fr;
+  grid-template-columns: 1.65fr 1fr 1fr 1fr 1.65fr;
   grid-template-rows: 1fr 1fr 1fr ;
   gap: 0px 0px;
+  grid-template-areas:
+  "left-side one two three right-side"
+  "left-side four five six right-side"
+  "left-side seven eight night right-side";
 }
 
 .one { grid-area: 1 / 2 / 2 / 3; }
@@ -34,6 +38,8 @@ body,
 .eight { grid-area: 3 / 3 / 4 / 4; }
 .nine { grid-area: 3 / 4 / 4 / 5; }
 .lottie { grid-area: 1 / 1 / 4 / 6; }
+.left-side { grid-area: left-side; }
+.right-side { grid-area: right-side; }
 
 .grid-container * {
   position: relative;
@@ -49,10 +55,7 @@ body,
 
 
 .score{
-  color:lime;
-  top:-38rem;
-  left:14.5rem;
-  font-size: 6rem;
+ 
 }
 
 .gomb{
@@ -82,6 +85,11 @@ height: 2.5rem;
   background-image: url(./img/animation_200_l0lnnoi9.gif);
   width:10rem;
   height: 10rem;
+  margin:auto;
+}
+
+#hide-ufo{
+  display: none;
 }
 
 .hole.up .ufo {
